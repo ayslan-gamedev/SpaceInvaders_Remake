@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public unsafe class Player : MonoBehaviour
@@ -8,7 +9,6 @@ public unsafe class Player : MonoBehaviour
     
     private Vector2 _inputDirection;
     private Movement _movement;
-
 
     private void Start()
     {
@@ -21,28 +21,36 @@ public unsafe class Player : MonoBehaviour
 
     private void Update()
     {
-        try
+        var playerMove = MovePlayer().IsOk;
+        
+        if (!playerMove)
         {
-            var playerInput = new Vector2(
-                x:Input.GetAxisRaw(AxesHorizontal), 
-                y: 0);
-            _inputDirection = playerInput;
-            
-            // Verify Borders
-            var isOnLimitMap = !(transform.position.x <= -GlobalValues.LimitX && playerInput.x < 0 ||    // player < X
-                                 transform.position.x >= GlobalValues.LimitX && playerInput.x > 0);      // player > X
-            
-            if (isOnLimitMap)
-            {
-                // Move the player
-                _movement.Move();
-            }
-        }
-        catch
-        {
-            // reload _movement
             Start();
-            throw;
         }
+    }
+    
+    private Result<bool, Exception> MovePlayer()
+    {
+        if (_movement is null)
+        {
+            return new Exception("_movement is null");
+        }
+
+        var playerInput = new Vector2(
+            x: Input.GetAxisRaw(AxesHorizontal),
+            y: 0);
+        _inputDirection = playerInput;
+
+        // Verify Borders
+        var isOnLimitMap = !(transform.position.x <= -GlobalValues.LimitX && playerInput.x < 0 ||    // player < X
+                             transform.position.x >= GlobalValues.LimitX && playerInput.x > 0);      // player > X
+
+        if (isOnLimitMap)
+        {
+            // Move the player
+            _movement.Move();
+        }
+        
+        return true;
     }
 }
