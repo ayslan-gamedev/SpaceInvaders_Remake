@@ -1,4 +1,4 @@
-namespace SpaceInvaders
+namespace SpaceInvaders.Core
 {
     public abstract class GlobalValues
     {
@@ -7,6 +7,5 @@ namespace SpaceInvaders
     
         public const float LimitMaxX = 7;
         public const float LimitMinX = -7;
-
     }
 }

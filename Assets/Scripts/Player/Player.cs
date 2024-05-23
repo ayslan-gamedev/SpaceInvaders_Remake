@@ -1,7 +1,9 @@
 using System;
+using SpaceInvaders.Core;
+using SpaceInvaders.Utilities;
 using UnityEngine;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Player
 {
     public unsafe class Player : MonoBehaviour
     {
@@ -44,8 +46,8 @@ namespace SpaceInvaders
             _inputDirection = playerInput;
 
             // Verify Borders
-            var isOnLimitMap = !(transform.position.x <= -GlobalValues.LimitMaxX && playerInput.x < 0 ||    // player < X
-                                 transform.position.x >= GlobalValues.LimitMinX && playerInput.x > 0);      // player > X
+            var isOnLimitMap = !(transform.position.x <= -GlobalValues.LimitMaxX && playerInput.x < 0 ||  // player < X
+                                 transform.position.x >= GlobalValues.LimitMinX && playerInput.x > 0);    // player > X
 
             if (isOnLimitMap)
             {

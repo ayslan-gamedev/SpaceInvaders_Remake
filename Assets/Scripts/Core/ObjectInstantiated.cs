@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpaceInvaders
+namespace SpaceInvaders.Core
 {
     public class ObjectInstantiated : MonoBehaviour
     {    
