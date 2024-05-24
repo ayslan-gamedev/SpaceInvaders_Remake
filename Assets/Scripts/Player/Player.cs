@@ -32,23 +32,23 @@ namespace SpaceInvaders.Player
                 Start();
             }
         }
-    
+        
         private Result<bool, Exception> MovePlayer()
         {
             if (_movement is null)
             {
                 return new Exception("_movement is null");
             }
-
+         
             var playerInput = new Vector2(
                 x: Input.GetAxisRaw(AxesHorizontal),
                 y: 0);
             _inputDirection = playerInput;
 
             // Verify Borders
-            var isOnLimitMap = !(transform.position.x <= -GlobalValues.LimitMaxX && playerInput.x < 0 ||  // player < X
-                                 transform.position.x >= GlobalValues.LimitMinX && playerInput.x > 0);    // player > X
-
+            var isOnLimitMap = transform.position.x <= GlobalValues.LimitMaxX && playerInput.x >= 0 || 
+                               transform.position.x >= GlobalValues.LimitMinX && playerInput.x <= 0;
+            
             if (isOnLimitMap)
             {
                 // Move the player

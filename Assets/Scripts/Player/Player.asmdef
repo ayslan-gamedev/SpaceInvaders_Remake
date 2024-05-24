@@ -3,8 +3,7 @@
     "rootNamespace": "SpaceInvaders",
     "references": [
         "GUID:ae8a8ff89c14a834897e0a3e958784e7",
-        "GUID:23713360b374ba14980aae9768fa1b38",
-        "GUID:13a1ea16ed31ab140a6e87864a32d9b2"
+        "GUID:23713360b374ba14980aae9768fa1b38"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
