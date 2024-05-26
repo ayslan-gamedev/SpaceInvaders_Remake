@@ -13,7 +13,7 @@ namespace SpaceInvaders.Player
     
         private Vector2 _inputDirection;
         private Movement _movement;
-
+        
         private void Start()
         {
             fixed (Vector2* pInputDirection = &_inputDirection)
@@ -26,7 +26,7 @@ namespace SpaceInvaders.Player
         private void Update()
         {
             var playerMove = MovePlayer().IsOk;
-        
+            
             if (!playerMove)
             {
                 Start();
