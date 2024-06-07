@@ -31,6 +31,7 @@ namespace SpaceInvaders.Enemy
         {
             var count = 0;
             var y = initialYPosition;
+            _invaders = new List<Invader>();
             
             for (var line = 0; line < lines; line++)
             {
@@ -55,6 +56,7 @@ namespace SpaceInvaders.Enemy
                     x += distanceX;
                     count++;
                 }
+                Debug.Log(line);
                 y+=distanceY;
             }
         }
