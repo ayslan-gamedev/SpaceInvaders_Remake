@@ -15,14 +15,6 @@ namespace SpaceInvaders.Core
             _direction = direction;
             _speed = speed;
         }
-    
-        
-        public Movement(Transform transform, Vector2 *direction)
-        {
-            _transform = transform;
-            _direction = direction;
-            _speed = (float*)1;
-        }
         
         /// <summary>
         /// Move the object
