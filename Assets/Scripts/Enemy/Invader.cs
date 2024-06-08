@@ -19,7 +19,7 @@ namespace SpaceInvaders.Enemy
         
         private SpriteRenderer _spriteRenderer;
         private Movement _movement;
-        
+
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,11 +33,16 @@ namespace SpaceInvaders.Enemy
             {
                 _movement = new Movement(transform, pInputDirection, pPlayerSpeed);
             }
+            
+            _speed = 1;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            throw new NotImplementedException();
+            if (other.CompareTag("Player"))
+            {
+                //FindObjectOfType<InvaderManager>().KillInvader(InvaderID);
+            }
         }
 
         /// <summary>

@@ -158,7 +158,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -183,7 +183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -245,24 +245,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invadersSprites:
   - frames:
+    - {fileID: -1996927650, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+    - {fileID: -1262407325, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+  - frames:
+    - {fileID: -1996927650, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+    - {fileID: -1262407325, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+  - frames:
+    - {fileID: 478987619, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+    - {fileID: -1543442346, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+  - frames:
+    - {fileID: 478987619, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+    - {fileID: -1543442346, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+  - frames:
     - {fileID: 1897250488, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
     - {fileID: -814698292, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-  - frames:
-    - {fileID: 478987619, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-    - {fileID: -1543442346, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-  - frames:
-    - {fileID: 478987619, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-    - {fileID: -1543442346, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-  - frames:
-    - {fileID: -1996927650, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-    - {fileID: -1262407325, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-  - frames:
-    - {fileID: -1996927650, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
-    - {fileID: -1262407325, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
   lines: 5
-  rows: 6
-  initialYPosition: 7
-  initialXPosition: -7
+  rows: 12
+  initialYPosition: 5.5
+  initialXPosition: -5
   distanceY: 1.5
   distanceX: 1
 --- !u!4 &794361834
@@ -353,7 +353,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 478987619, guid: e006ab08e4301bc41be23d3c415f8d54, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bb51d4b55d57ff47a6874bde46473fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -373,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 1683950492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17794502, y: -1.3930514, z: 0}
+  m_LocalPosition: {x: -0.17794502, y: -3.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
