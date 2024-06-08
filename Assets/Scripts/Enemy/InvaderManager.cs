@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SpaceInvaders.Enemy
@@ -102,18 +103,26 @@ namespace SpaceInvaders.Enemy
             }
         }
 
-        // /// <summary>
-        // /// Kill Alien
-        // /// </summary>
-        // /// <param name="invaderId"></param>
-        // public void KillInvader(int invaderId)
-        // {
-        //     foreach (var currentInvader 
-        //              in _invaders.ToList().Where(currentInvader => currentInvader.InvaderID == invaderId))
-        //     {
-        //         Destroy(currentInvader.gameObject);
-        //         _invaders.Remove(currentInvader);
-        //     }
-        // }
+        /// <summary>
+        /// Kill Alien
+        /// </summary>
+        /// <param name="invaderId"></param>
+        public void KillInvader(int invaderId)
+        {
+            foreach (var invaderList in _invaders.ToList())
+            {
+                if (!invaderList.Any())
+                {
+                    _invaders.Remove(invaderList); 
+                    return;
+                }
+                
+                foreach (var invader in invaderList.ToList())
+                {
+                    Destroy(invader.gameObject);
+                    invaderList.Remove(invader);
+                }
+            }
+        }
     }
 }

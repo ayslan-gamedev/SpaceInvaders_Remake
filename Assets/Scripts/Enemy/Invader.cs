@@ -41,7 +41,7 @@ namespace SpaceInvaders.Enemy
         {
             if (other.CompareTag("Player"))
             {
-                //FindObjectOfType<InvaderManager>().KillInvader(InvaderID);
+                FindObjectOfType<InvaderManager>().KillInvader(InvaderID);
             }
         }
 
