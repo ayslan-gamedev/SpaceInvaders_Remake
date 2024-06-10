@@ -2,43 +2,54 @@ using UnityEngine;
 
 namespace SpaceInvaders
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class DynamicColor : MonoBehaviour
     {
-        private readonly GameObject[] _objects = new GameObject[2];
+        private readonly SpriteRenderer[] _objects = new SpriteRenderer[2];
+        private SpriteRenderer _renderer;
+        private SpriteRenderer _spriteRenderer;
         
-        // Start is called before the first frame update
-        private void Start()
+        private void Awake()
         {
-            var s = GetComponent<SpriteRenderer>().sprite;
-            
-            _objects[0] = new GameObject(gameObject.name + "_green");
-            _objects[1] = new GameObject(gameObject.name + "_red");
-            
-            var gs = _objects[0].AddComponent<SpriteRenderer>();
-            gs.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-            gs.sprite = s;
-            gs.color = Color.green;
-            Instantiate(_objects[0], transform.position, transform.rotation, transform);
-    
-            gs = _objects[1].AddComponent<SpriteRenderer>();
-            gs.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-            gs.sprite = s;
-            gs.color = Color.red;
-            Instantiate(_objects[1], transform.position, transform.rotation, transform);
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        // Update is called once per frame
-        private void Update()
+        private void Start()
         {
+            _renderer = _spriteRenderer;
+            _renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            
+            for (var i = 0; i < _objects.Length; i++)
+            {
+                var o = Instantiate(new GameObject(gameObject.name + i + "_x"), 
+                                                                         transform.position, transform.rotation, 
+                                                                         transform);
+                o.name = gameObject.name + "color" + i;
+                Destroy(GameObject.Find(gameObject.name + i + "_x"));
+
+                var r = o.AddComponent<SpriteRenderer>();
+                r.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+
+                _objects[i] = r;
+            }
+        }
+
+        private void LateUpdate()
+        {
+            foreach (var t in _objects)
+            {
+                t.sprite = _renderer.sprite;
+            }
+
             if (transform.position.y < 0)
             {
-                _objects[0].SetActive(true);
-                _objects[1].SetActive(false);
+                _objects[0].color = Color.green;
+                _objects[1].color = Color.clear;
             }
             else
-            {
-                _objects[0].SetActive(false);
-                _objects[1].SetActive(true);
+            {                
+                _objects[0].color = Color.clear;
+                _objects[1].color = Color.red;
             }
         }
     }
